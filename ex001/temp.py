@@ -16,9 +16,10 @@ print(f'splitedStr: {splitedStr}')
 print(f'splitedstr type: {type(splitedStr)}')
 
 member = "이고은/20/대전 중구/010-1234-5678/goeun@gmail.com"
-memberlist = member. split("/")
-print(f'memberList: {memberlist}')
-print(f'이름: memberList[]')
+memberList = member. split("/")
+print(f'memberList: {memberList}')
+print(f'이름: {memberList[0]}')
+print(f'연락처: {memberList[3]}')
 
 #할당(대입) 연산
 num = 10

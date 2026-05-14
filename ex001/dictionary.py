@@ -60,7 +60,7 @@ print(dicts)
 
 print(f'dicts: {dicts}')
 '''
-{'name': 'name': '박찬호','age': '20','addr' : '대전 중구','hobby': ['축구', '농구', '배구'}
+{'name': '박찬호','age': '20','addr' : '대전 중구','hobby': ['축구', '농구', '배구'}
 '''
 
 print(dicts['hobby'][1])
@@ -97,12 +97,12 @@ seats = {
 #1.
 seats={1: "빈자리", 2: "사용중", 3: "빈자리", 4: "사용중", 5: "빈자리"}
 print(f'seats: {seats}')
-#2.
 userinputdata = int(input('번호를 입력하세요:'))
-#3.
-int(input('번호를 입력하세요: '))
-#4.
-
+if seats[userinputdata] == "빈자리":
+    print("예약 완료")
+    seats[userinputdata] = "사용중"
+else: print ("이미 사용중인 자리입니다.")
+print(f'seats: {seats}')
 
 '''
 - 배달 주문 통계 프로그램 
@@ -126,6 +126,11 @@ orders = [
 4. 사용자가 음식 이름 입력하면
 몇 번 주문됐는지 출력하기
 '''
+
+orders_count = {"치킨": 3, "피자": 2, "햄버거": 1}
+max_Orders = max(orders, key = orders.count)
+total = sum(orders_count)
+print(f'총 주문개수:  total')
 
 
 
