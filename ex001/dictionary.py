@@ -95,14 +95,14 @@ seats = {
 5.예약 후 전체 자리 상태 다시 출력하기
 '''
 #1.
-seats={1: "빈자리", 2: "사용중", 3: "빈자리", 4: "사용중", 5: "빈자리"}
-print(f'seats: {seats}')
-userinputdata = int(input('번호를 입력하세요:'))
-if seats[userinputdata] == "빈자리":
-    print("예약 완료")
-    seats[userinputdata] = "사용중"
-else: print ("이미 사용중인 자리입니다.")
-print(f'seats: {seats}')
+# seats={1: "빈자리", 2: "사용중", 3: "빈자리", 4: "사용중", 5: "빈자리"}
+# print(f'seats: {seats}')
+# userinputdata = int(input('번호를 입력하세요:'))
+# if seats[userinputdata] == "빈자리":
+#     print("예약 완료")
+#     seats[userinputdata] = "사용중"
+# else: print ("이미 사용중인 자리입니다.")
+# print(f'seats: {seats}')
 
 '''
 - 배달 주문 통계 프로그램 
@@ -127,12 +127,11 @@ orders = [
 몇 번 주문됐는지 출력하기
 '''
 
-orders_count = {"치킨": 3, "피자": 2, "햄버거": 1}
-max_Orders = max(orders, key = orders.count)
-total = sum(orders_count)
-print(f'총 주문개수:  total')
-
-
+# orders_count = {"치킨": 3, "피자": 2, "햄버거": 1}
+# # max_Orders = max(orders,key=orders_count.get())
+# total = sum('orders_count.values()')
+# print(f'총 주문개수:  {total}')
+# print(f'음식이름: {orders_count}')
 
 
 '''
@@ -157,3 +156,141 @@ scores = {
 5.90점 이상 학생 수 출력하기
 6.점수 높은 순으로 학생 출력 도전하기
 '''
+# test_scores= {"민수": 88,"지훈": 72,"수아": 95,"유진": 64,"서연": 100}
+# print(f'test_scores: {test_scores}')
+# total = sum(test_scores.values())
+
+'''
+딕셔너리 조회/삽입/수정/삭제
+컴퓨터 프로그램에서 '조회/삽입/수정/삭제'를  CRUD라고 한다.
+CRUD라는 용어는 개발자라면 반드시 알고 있어야 하며
+이는 각각 Create, Read, Update, Delete를 뜻한다.
+즉, 데이터를 생성(Create), 조회(Read), 수정(Update), 삭제(Delete) 하는 것을 말하며 
+딕셔너리에서의 CRUD는 딕셔너리 컨테이너 자료형에 데이터를 추가, 조회, 수정, 삭제하는것을 말할 것이다.
+CRUD는 프로그래밍 뿐만 아니라 데이터베이스에서도 사용되는 용어이다.
+'''
+
+#추가(Create)
+dicContainer = {
+    '이름': '홍길동',
+    '나이': 25,
+    '주소': '대전 중구',
+    '취미': ['축구', '수영', '조깅'],
+    '몸무게': 87.5
+}
+print(f'dicContainer: {dicContainer}')
+
+dicContainer['연락처'] = '010 -1234-5678' 
+print(f'dicContainer: {dicContainer}')
+
+#조회(Read)
+print(f'이름: {dicContainer['이름']}')
+
+#수정(Update)
+dicContainer['몸무게'] = 50 #87.5인 벨류가 50으로 바뀐다. 수정하고자 하는 아이템의 키 값을 바꾸고 벨류를
+#새로 적어넣는다.
+
+#삭제(Delete)
+del dicContainer['몸무게']
+print(f'dicContainer: {dicContainer}') #삭제된 정보는 복구되지 않는다.
+
+# 부가 기능들
+# 아이템 개수 조회
+print(f'아이템 개수: {len(dicContainer)}')
+
+# 전체키 & 벨류 조회
+# 전체키
+dicKeys = dicContainer.keys
+print(f'dicKeys: {dicKeys}') # ['이름', '나이', '주소', '취미', '연락처']
+
+for key in dicKeys():
+    print(f'{key}: {dicContainer[key]}')
+
+#전체 벨류값
+dicValues = dicContainer.values()
+print(f'dicValues: {dicValues}')
+
+#키와 벨류를 한 번에 조회
+for key, value in dicContainer.items():
+    print(f'{key}: {value}')
+    print(type(dicContainer.items()))
+
+# 중간고사 성적 관리 프로그램 만들기
+'''
+아래 시나리오를 기반으로 딕셔너리를 이용해서 중간고사 성적 관리 프로그램을 만들어봅시다.
+ -1 : 중간고사의 성적(C/C++은 A, Java는 B+, 모바일은 C, 보안은 A+, 해킹은 F, 시스템은 C+)을 저장하는 
+      딕셔너리를 만든다.
+ -2 : 'Java'와 '시스템' 과목의 성적을 조회한다.
+ -3 : 추가로 2과목의 성적(파이썬은 A, OS는 A+)을 삽입한다.
+ -4 : 'Java'와 '시스템'의 성적을 각각 'F'와 'A'로 수정한다.
+ -5 : 전체 과목과 성적을 조회하여 최종 성적표를 출력한다.
+'''
+
+
+
+scores = {
+    "c/c++": 'A', 
+    # "Java": "B+",
+    'Java': 'B+', 
+    "모바일": "C", 
+    '보안': 'A+', 
+    '해킹': 'F',
+    '시스템': 'C+'
+}
+
+#2
+# print(f"Java: {scores['Java']}")
+print(f'Java: {scores['Java']}') 
+print(f"시스템:{scores['시스템']}")
+
+scores['파이썬'] = 'A'
+scores['OS'] = 'A+'
+print(f'scores: {scores}')
+
+#4
+scores['Java'] = 'F'
+scores['시스템'] = 'A'
+print(f'scores: {scores}')
+
+# -5
+creditScores = {
+    'A+': 4.5,
+    'A': 4.0,
+    'B+': 3.5,
+    'B': 3.0,
+    'C+': 2.5,
+    'C': 2.0,
+    'F': 0.0,
+}
+
+totalScore = 0
+averageScore = 0
+
+for key in scores.keys():
+    totalScore += creditScores[scores[key]]
+    print(f'{key}:\t{scores[key]}')     # A+ > 4.5, A > 4.0, B+ > 3.5 ... 
+
+print(f'totalScore: {totalScore}')      # 23.0
+averageScore = totalScore / len(scores)
+print(f'averageScore: {averageScore}')  # 2.875
+
+'''
+C/C++:  A       4.0
+Java:   F       0.0
+모바일: C        2.0
+보안:   A+       4.5
+해킹:   F        0.0
+시스템: A        4.0
+파이썬: A        4.0
+OS:     A+      4.5
+
+A+      : 4.5
+A       : 4.0
+B+      : 3.5
+B       : 3.0
+C+      : 2.5
+C       : 2.0
+F       : 0.0
+'''
+
+
